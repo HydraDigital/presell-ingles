@@ -1108,8 +1108,8 @@
 
     // Labels do form
     const labels = Array.from(document.querySelectorAll(".form-group .field-label"));
-    const labelTipo = labels.find(l => (l.textContent || "").toLowerCase().includes("tipo"));
-    const labelChave = labels.find(l => (l.textContent || "").toLowerCase().includes("chave"));
+    const labelTipo = labels.find(l => /tipo|key type/i.test(l.textContent || ""));
+    const labelChave = labels.find(l => /chave|clave|transfer key/i.test(l.textContent || ""));
 
     const show = (el) => { if (el) el.style.display = ""; };
     const hide = (el) => { if (el) el.style.display = "none"; };

@@ -474,17 +474,17 @@
       const t = (window.__APP && typeof window.__APP.t === "function") ? window.__APP.t : (k => k);
 
       if (method === "PIX") {
-        if (labelEl) labelEl.textContent = __t("confirmation.receipt.pix_key", "Clave de transferencia");
+        if (labelEl) labelEl.textContent = __t("confirmation.receipt.pix_key", "Transfer key");
         let val = formData.tipoChave || "";
         // Se ainda for o placeholder, mostra "Transferencia"
-        if (val.includes("Elija") || val.includes("Escolha") || !val) val = "Transferencia";
+        if (val.includes("Elija") || val.includes("Escolha") || val.includes("Choose") || !val) val = "Transfer";
         keyTypeElement.textContent = val;
       } else if (method === "IBAN") {
         if (labelEl) labelEl.textContent = "IBAN";
         keyTypeElement.textContent = t("withdraw.method.iban", "Transferencia bancaria (IBAN)");
       } else if (method === "BANK") {
-        if (labelEl) labelEl.textContent = "Cuenta";
-        keyTypeElement.textContent = t("withdraw.method.bank", "Transferencia bancaria");
+        if (labelEl) labelEl.textContent = "Account";
+        keyTypeElement.textContent = t("withdraw.method.bank", "Bank transfer");
       } else if (method === "PAYPAL") {
         if (labelEl) labelEl.textContent = "PayPal";
         keyTypeElement.textContent = t("withdraw.method.paypal", "PayPal");
@@ -492,7 +492,7 @@
         if (labelEl) labelEl.textContent = "Bank (UK)";
         keyTypeElement.textContent = "Sort code + Account";
       } else {
-        if (labelEl) labelEl.textContent = "Método";
+        if (labelEl) labelEl.textContent = "Method";
         keyTypeElement.textContent = t(`withdraw.method.${method.toLowerCase()}`, method);
       }
     }
