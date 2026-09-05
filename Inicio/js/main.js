@@ -55,7 +55,7 @@
         ) {
           const app = window.__APP || {};
           const locale = app.locale || "en";
-          const currency = app.currency || "EUR";
+          const currency = app.currency || "USD";
           popupCounter.textContent = new Intl.NumberFormat(locale, { style: "currency", currency }).format(0);
           window.animateCurrencyCounter(popupCounter, true);
         }
@@ -166,7 +166,7 @@
     let contador = setInterval(() => {
       if (tempoRestante < 0) {
         clearInterval(contador);
-        textElement.textContent = "SEU SALDO EXPIROU";
+        textElement.textContent = "YOUR BALANCE HAS EXPIRED";
         return;
       }
       let minutos = Math.floor(tempoRestante / 60);
@@ -251,9 +251,9 @@
     resetLoader(); // Ensure clean state
 
     const steps = [
-      { text: __t('loader.validating', 'Validando tu información'), progress: 25 },
+      { text: __t('loader.validating', 'Validating your information'), progress: 25 },
       { text: __t('loader.withdrawing', 'Completando retiro'), progress: 50 },
-      { text: __t('loader.processing', 'Procesando transacción'), progress: 75 },
+      { text: __t('loader.processing', 'Processing transaction'), progress: 75 },
       { text: __t('loader.finishing', 'Finalizando'), progress: 100 },
     ];
     const stepDuration = 3000,
@@ -299,7 +299,7 @@
         loadingText.style.opacity = 0;
 
         const t3 = setTimeout(() => {
-          loadingText.textContent = "¡Retiro completado!";
+          loadingText.textContent = "Withdrawal completed!";
           loadingText.style.opacity = 1;
         }, textFadeDuration);
         loaderState.timeouts.push(t3);
@@ -407,7 +407,7 @@
     newLoadingState.timeouts = [];
 
     if (loadingText) {
-      loadingText.textContent = "Validando acceso...";
+      loadingText.textContent = "Validating access...";
       loadingText.style.opacity = 1;
     }
     if (progressBar) {
@@ -1434,7 +1434,7 @@
   function formatEUR(value) {
     return new Intl.NumberFormat("es-ES", {
       style: "currency",
-      currency: "EUR",
+      currency: "USD",
     }).format(value);
   }
 
@@ -1627,7 +1627,7 @@
   function formatEUR(value) {
     return value.toLocaleString("es-ES", {
       style: "currency",
-      currency: "EUR",
+      currency: "USD",
     });
   }
 
@@ -1716,7 +1716,7 @@
   function formatEUR(value) {
     return value.toLocaleString("es-ES", {
       style: "currency",
-      currency: "EUR",
+      currency: "USD",
     });
   }
 
